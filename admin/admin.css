@@ -1,0 +1,34 @@
+body {
+    background: #111;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #FFF;
+}
+
+.wrapper {
+    background: #000;
+    border-radius: 5px;
+    color: #FFF;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin: 0 auto;
+    padding: 10px;
+    width: 940px;
+}
+
+.header {
+    font-size: 1.5em;
+    line-height: 2em;
+    text-align: center;
+}
+
+.footer {
+    clear: both;
+    font-size: .8em;
+    text-align: center;
+}
