@@ -1,61 +1,53 @@
-<? include('../config.php'); ?>
-<?
+<?php
+
+include('../config.php');
+
 echo "<center><b><font color='#336699' size='4' face='Arial, Helvetica, sans-serif'>Recherche d'un Film</font></b><br>";
 echo "<img src='koyot.jpg' width='157' height='131' alt='Le coyote a la recherche d un film ou de bipbip !'><br></center>";
-$bdd=@mysql_connect($host,$user,$pass);
+$bdd = @mysql_connect($host,$user,$pass);
      @mysql_select_db($base,$bdd);
-if (!$bdd)
-  {
+if (!$bdd) {
     echo"<center><h4>Impossible de se connecter à la base de données.</h4></center>";
     exit;
-  };
-switch($task)
-   {
+}
+switch($task) {
     case 2: // recherche dans la base
-      if ($op2)
-        {
-          $query="SELECT * FROM liste WHERE id IS NOT NULL";
-          if ($id)
-            {
-              $query.=" AND id LIKE '$id%'";
-            };
-          if ($nom)
-            {
-              $query.=" AND nom LIKE '$nom%'";
-            };
-          if ($support)
-            {
-              $query.=" AND support LIKE '$support%'";
-            };
-          if ($langue)
-            {
-              $query.=" AND langue LIKE '%$langue%'";
-            };
-       if ($description)
-            {
-              $query.=" AND description LIKE '%$description%'";
-            };
-       if ($qualite)
-            {
-              $query.=" AND qualite LIKE '%$qualite%'";
-            };
-          $query.=" ORDER BY nom";
-          $res=mysql_query($query);
-          echo"<table width='0%' cellpadding='5' cellspacing='1' border='0' align='center'>";
-          echo"<td bgcolor='#ffffff' align='center'><b>Id</b></td><td bgcolor='#ffffff' align='center'><b>Nom</b></td><td bgcolor='#ffffff' align='center'><b>Support</b></td><td bgcolor='#ffffff' align='center'><b>Langue</b></td><td>&nbsp;</td><td bgcolor='#ffffff' align='center'><b>Description</b></td><td bgcolor='#ffffff' align='center'><b>Qualite</b></td><td>&nbsp;</td></tr>";
-          while($val=mysql_fetch_array($res,$bdd))
-            {
-              $id = $val['id'];
-              $nom = $val['nom'];
-              $support = $val['support'];
-              $langue = $val['langue'];
-              $description = $val['description'];
-              $qualite = $val['qualite'];
-              echo"<td bgcolor='#ffffff'>".$id."</td><td bgcolor='#ffffff'>".$nom."</td><td bgcolor='#ffffff'>".$support."</td><td bgcolor='#ffffff'>".$langue."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'>".$description."</td><td bgcolor='#ffffff'>".$qualite."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'><A HREF='recherche.php?task=4&id=$id&nom=$nom&support=$support&langue=$langue&description=$description&qualite=$qualite'>modifier</A></td><td bgcolor='#ffffff'><A HREF='recherche.php?task=3&id=$id'>effacer</A></td></tr>";
-            };
-          echo"</table><br>";
-        };
-      echo"<table width='0%' cellpadding='5' cellspacing='0' border='0' align='center' bgcolor='#ffffff'>
+        if ($op2) {
+            $query="SELECT * FROM liste WHERE id IS NOT NULL";
+            if ($id) {
+                $query.=" AND id LIKE '$id%'";
+            }
+            if ($nom) {
+                $query.=" AND nom LIKE '$nom%'";
+            }
+            if ($support) {
+                $query.=" AND support LIKE '$support%'";
+            }
+            if ($langue) {
+                $query.=" AND langue LIKE '%$langue%'";
+            }
+            if ($description) {
+                $query.=" AND description LIKE '%$description%'";
+            }
+            if ($qualite) {
+                $query.=" AND qualite LIKE '%$qualite%'";
+            }
+            $query.=" ORDER BY nom";
+            $res=mysql_query($query);
+            echo"<table width='0%' cellpadding='5' cellspacing='1' border='0' align='center'>";
+            echo"<td bgcolor='#ffffff' align='center'><b>Id</b></td><td bgcolor='#ffffff' align='center'><b>Nom</b></td><td bgcolor='#ffffff' align='center'><b>Support</b></td><td bgcolor='#ffffff' align='center'><b>Langue</b></td><td>&nbsp;</td><td bgcolor='#ffffff' align='center'><b>Description</b></td><td bgcolor='#ffffff' align='center'><b>Qualite</b></td><td>&nbsp;</td></tr>";
+            while($val=mysql_fetch_array($res,$bdd)) {
+                $id = $val['id'];
+                $nom = $val['nom'];
+                $support = $val['support'];
+                $langue = $val['langue'];
+                $description = $val['description'];
+                $qualite = $val['qualite'];
+                echo"<td bgcolor='#ffffff'>".$id."</td><td bgcolor='#ffffff'>".$nom."</td><td bgcolor='#ffffff'>".$support."</td><td bgcolor='#ffffff'>".$langue."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'>".$description."</td><td bgcolor='#ffffff'>".$qualite."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'><A HREF='recherche.php?task=4&id=$id&nom=$nom&support=$support&langue=$langue&description=$description&qualite=$qualite'>modifier</A></td><td bgcolor='#ffffff'><A HREF='recherche.php?task=3&id=$id'>effacer</A></td></tr>";
+            }
+            echo"</table><br>";
+        }
+        echo"<table width='0%' cellpadding='5' cellspacing='0' border='0' align='center' bgcolor='#ffffff'>
              <form name='recherche' action='recherche.php?task=2' method='post'>
                <tr>
                  <td align='right'>Id :</td>
@@ -106,29 +98,21 @@ switch($task)
                </tr>
              </form>
            </table>";
-
-break;
-
+    break;
     case 3: // suppression des resultats
-      echo"<table align='center'><tr><td>Vous êtes sûr ?<li><A HREF='recherche.php?task=5&id=$id'>Ok<A/></li><li><A HREF='javascript:history.back();'>Annuler<A/></li></td></tr></table>";
-
-break;
-
+        echo"<table align='center'><tr><td>Vous êtes sûr ?<li><A HREF='recherche.php?task=5&id=$id'>Ok<A/></li><li><A HREF='javascript:history.back();'>Annuler<A/></li></td></tr></table>";
+    break;
     case 4: // modifier des resultats
-      if ($op4)
-        {
-          $query="UPDATE liste SET nom='$nom', support='$support', langue='$langue' description='$description' qualite='$qualite' WHERE id='$id'";
-          $res=mysql_query($query);
-          if ($res)
-            {
-              echo"<center><h4>Entrée modifiée</h4></center>";
+        if ($op4) {
+            $query="UPDATE liste SET nom='$nom', support='$support', langue='$langue' description='$description' qualite='$qualite' WHERE id='$id'";
+            $res=mysql_query($query);
+            if ($res) {
+                echo"<center><h4>Entrée modifiée</h4></center>";
+            } else {
+                echo"<center><h4>Erreur</h4></center>";
             }
-            else
-            {
-              echo"<center><h4>Erreur</h4></center>";
-            };
-        };
-      echo"<table width='0%' cellpadding='5' cellspacing='0' border='0' align='center' bgcolor='#fffff'>
+        }
+        echo"<table width='0%' cellpadding='5' cellspacing='0' border='0' align='center' bgcolor='#fffff'>
              <form name='modifier' action='recherche.php?task=4' method='post'>
                <tr>
                  <td colspan='2' align='center'><h2>Modifier</h2></td>
@@ -156,7 +140,7 @@ break;
                <tr>
                  <td align='right'>Qualite</td>
                  <td>$qualite</td>
-               </tr>	
+               </tr>
                <tr>
                  <td>&nbsp;</td>
                  <td>
@@ -169,29 +153,17 @@ break;
                </tr>
              </form>
            </table>";
-
-break;
-
+    break;
     case 5:
-      $query="DELETE FROM liste WHERE id = '$id'";
-      $res=mysql_query($query);
-      if ($res)
-        {
-          echo"<center>Supprimée !<br><br><a href='recherche.php?task=2'>Autre recherche</a><br><br><a href='../index.php'>Retour a la liste</a></center>";
+        $query="DELETE FROM liste WHERE id = '$id'";
+        $res=mysql_query($query);
+        if ($res) {
+            echo"<center>Supprimée !<br><br><a href='recherche.php?task=2'>Autre recherche</a><br><br><a href='../index.php'>Retour a la liste</a></center>";
+        } else {
+            echo"<center><h4>Erreur</h4></center>";
         }
-        else
-        {
-          echo"<center><h4>Erreur</h4></center>";
-        };
-		
-break;
-
-default:
-echo "<center></center>";
-
-break;
-  }
-
-mysql_close;
-?>
-
+    break;
+    default:
+        echo "<center></center>";
+    break;
+}

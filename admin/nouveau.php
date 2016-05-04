@@ -1,9 +1,8 @@
-<? 
-
+<?php
 echo "<center>";
 echo "<body bgcolor='#ffffff'>";
 echo "<b><font color='#336699' size='4' face='Arial, Helvetica, sans-serif'>Ajout d'un Film</font></b><br>";
-include('../config.php'); 
+include('../config.php');
 echo "<img src='koyot.jpg' width='157' height='131' alt='Oh un coyote !'><br>";
 mysql_connect($host, $user, $pass);
 mysql_select_db($base) or die( "Connexion impossible à la base de donnée !!!!!!");
@@ -49,17 +48,11 @@ echo "<input type='submit' name='Submit' value='Envoyer' action='nouveau.php'>";
 echo "<input type='hidden' name='posted' value='1'>";
 echo "</font> </p>";
 echo "</form>";
-function debut() {
-  }
-if(isset($posted)):
-include "../config.php";
-$mysql_link = mysql_connect($host,$user,$pass);
-mysql_select_db($base, $mysql_link);
-$query = "insert into liste VALUES(NULL, '$nom', '$support', '$langue', '$description', '$qualite')";
-mysql_query($query, $mysql_link);
-print("<b><font color=red face='Arial' size='2'>Les données ont bien été entrées</font></b>");
-debut();
-else:
-debut();
-endif;
-?>
+if (isset($posted)) {
+    include "../config.php";
+    $mysql_link = mysql_connect($host,$user,$pass);
+    mysql_select_db($base, $mysql_link);
+    $query = "insert into liste VALUES(NULL, '$nom', '$support', '$langue', '$description', '$qualite')";
+    mysql_query($query, $mysql_link);
+    print("<b><font color=red face='Arial' size='2'>Les données ont bien été entrées</font></b>");
+}
