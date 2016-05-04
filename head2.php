@@ -411,7 +411,7 @@ document.onmousemove = handlerMM;
 
           //Nb de personnes sur le site
 
-          include('connectes.inc');
+          include('connectes.inc.php');
 
         ?>
 
