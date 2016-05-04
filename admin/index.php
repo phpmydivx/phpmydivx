@@ -1,5 +1,5 @@
 <?
-include('pass.php3');
+include('pass.php');
 
 
 echo "<html>
@@ -14,7 +14,7 @@ if($pass != $password)
     {
         echo "<p><center><font face=verdana color=FF0000>! FALSE PASSWORD ! ACCESS DENIED ! AGAIN SHOOT !</font></p></center>";
     }
-    echo "<br><br><center><form action='index.php3' method=POST>
+    echo "<br><br><center><form action='index.php' method=POST>
 	<br><br><div align=center><img src='logo.gif' border=0></div><br><br>
 
 	<br><font class='text5'>Veuillez entrer le mot de passe:</font><br><br>
@@ -30,8 +30,8 @@ if($pass != $password)
 
 echo "<div align='center'><img src='logo.gif' border=0></div><br><br>";
 echo "<br><br><br><div align=center><font class='text7'>Bonjour, vous pouvez acceder aux differentes parties d'admin du site.</p>";
-echo "[&nbsp;<a href='nouveau.php3'>Ajouter un film</a>&nbsp;]&nbsp;&nbsp;&nbsp;";
-echo "[&nbsp;<a href='recherche.php3?task=2'>Modifier la base de donnée</a>&nbsp;]&nbsp;&nbsp;&nbsp;";
+echo "[&nbsp;<a href='nouveau.php'>Ajouter un film</a>&nbsp;]&nbsp;&nbsp;&nbsp;";
+echo "[&nbsp;<a href='recherche.php?task=2'>Modifier la base de donnée</a>&nbsp;]&nbsp;&nbsp;&nbsp;";
 
 
 

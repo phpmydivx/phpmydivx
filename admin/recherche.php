@@ -1,4 +1,4 @@
-<? include('../config.php3'); ?>
+<? include('../config.php'); ?>
 <?
 echo "<center><b><font color='#336699' size='4' face='Arial, Helvetica, sans-serif'>Recherche d'un Film</font></b><br>";
 echo "<img src='koyot.jpg' width='157' height='131' alt='Le coyote a la recherche d un film ou de bipbip !'><br></center>";
@@ -51,12 +51,12 @@ switch($task)
               $langue = $val['langue'];
               $description = $val['description'];
               $qualite = $val['qualite'];
-              echo"<td bgcolor='#ffffff'>".$id."</td><td bgcolor='#ffffff'>".$nom."</td><td bgcolor='#ffffff'>".$support."</td><td bgcolor='#ffffff'>".$langue."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'>".$description."</td><td bgcolor='#ffffff'>".$qualite."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'><A HREF='recherche.php3?task=4&id=$id&nom=$nom&support=$support&langue=$langue&description=$description&qualite=$qualite'>modifier</A></td><td bgcolor='#ffffff'><A HREF='recherche.php3?task=3&id=$id'>effacer</A></td></tr>";
+              echo"<td bgcolor='#ffffff'>".$id."</td><td bgcolor='#ffffff'>".$nom."</td><td bgcolor='#ffffff'>".$support."</td><td bgcolor='#ffffff'>".$langue."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'>".$description."</td><td bgcolor='#ffffff'>".$qualite."</td><td bgcolor='#ffffff'><td bgcolor='#ffffff'><A HREF='recherche.php?task=4&id=$id&nom=$nom&support=$support&langue=$langue&description=$description&qualite=$qualite'>modifier</A></td><td bgcolor='#ffffff'><A HREF='recherche.php?task=3&id=$id'>effacer</A></td></tr>";
             };
           echo"</table><br>";
         };
       echo"<table width='0%' cellpadding='5' cellspacing='0' border='0' align='center' bgcolor='#ffffff'>
-             <form name='recherche' action='recherche.php3?task=2' method='post'>
+             <form name='recherche' action='recherche.php?task=2' method='post'>
                <tr>
                  <td align='right'>Id :</td>
                  <td><input type='text' name='id'></td>
@@ -110,7 +110,7 @@ switch($task)
 break;
 
     case 3: // suppression des resultats
-      echo"<table align='center'><tr><td>Vous êtes sûr ?<li><A HREF='recherche.php3?task=5&id=$id'>Ok<A/></li><li><A HREF='javascript:history.back();'>Annuler<A/></li></td></tr></table>";
+      echo"<table align='center'><tr><td>Vous êtes sûr ?<li><A HREF='recherche.php?task=5&id=$id'>Ok<A/></li><li><A HREF='javascript:history.back();'>Annuler<A/></li></td></tr></table>";
 
 break;
 
@@ -129,7 +129,7 @@ break;
             };
         };
       echo"<table width='0%' cellpadding='5' cellspacing='0' border='0' align='center' bgcolor='#fffff'>
-             <form name='modifier' action='recherche.php3?task=4' method='post'>
+             <form name='modifier' action='recherche.php?task=4' method='post'>
                <tr>
                  <td colspan='2' align='center'><h2>Modifier</h2></td>
                </tr>
@@ -177,7 +177,7 @@ break;
       $res=mysql_query($query);
       if ($res)
         {
-          echo"<center>Supprimée !<br><br><a href='recherche.php3?task=2'>Autre recherche</a><br><br><a href='../index.php3'>Retour a la liste</a></center>";
+          echo"<center>Supprimée !<br><br><a href='recherche.php?task=2'>Autre recherche</a><br><br><a href='../index.php'>Retour a la liste</a></center>";
         }
         else
         {

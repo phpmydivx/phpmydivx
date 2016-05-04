@@ -18,7 +18,7 @@ else
 		}
 	}
 </SCRIPT>
-<? include('config.php3'); ?>
+<? include('config.php'); ?>
 <STYLE>
 
 INPUT.formu { font-size:10px; color: #FFFFFF; background-color: #C0C0C0; font-family: Verdana,sans-serif; font-weight: 100; border: 2 solid <? echo"$tabletop"; ?>}
@@ -287,31 +287,31 @@ print("$nbvisites visiteurs");
 
           <td> 
 
-            <div align="center"><b><font face="Tahoma"><a href="index.php3">Titre</a></font></b></div>
+            <div align="center"><b><font face="Tahoma"><a href="index.php">Titre</a></font></b></div>
 
           </td>
 
           <td>
 
-            <div align="center"><b><font size="2" face="Tahoma"><a href="support.php3">Support</a></font></b></div>
+            <div align="center"><b><font size="2" face="Tahoma"><a href="support.php">Support</a></font></b></div>
 
           </td>
 
           <td>
 
-            <div align="center"><b><font face="Tahoma" size="2"><a href="langue.php3">Langue</a></font></b></div>
+            <div align="center"><b><font face="Tahoma" size="2"><a href="langue.php">Langue</a></font></b></div>
 
           </td>
 
           <td>
 
-            <div align="center"><b><font face="Tahoma" size="2"><a href="qualite.php3">Qualite</a></font></b></div>
+            <div align="center"><b><font face="Tahoma" size="2"><a href="qualite.php">Qualite</a></font></b></div>
 
           </td>
 
           <td>
 
-            <div align="center"><b><font face="Tahoma" size="2"><a href="description.php3">Description</a></font></b></div>
+            <div align="center"><b><font face="Tahoma" size="2"><a href="description.php">Description</a></font></b></div>
 
           </td>
 		  

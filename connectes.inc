@@ -1,5 +1,5 @@
 <?
-include('config.php3');
+include('config.php');
 $duree_estimee=120;
 $limite = time() + $duree_estimee;
 $db = mysql_connect($host, $user, $pass); 

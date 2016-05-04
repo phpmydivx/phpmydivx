@@ -18,7 +18,7 @@ else
 		}
 	}
 </SCRIPT>
-<? include('config.php3'); ?>
+<? include('config.php'); ?>
 <STYLE>
 
 INPUT.formu { font-size:10px; color: #FFFFFF; background-color: #C0C0C0; font-family: Verdana,sans-serif; font-weight: 100; border: 2 solid <? echo"$tabletop"; ?>}
@@ -175,67 +175,59 @@ document.onmousemove = handlerMM;
 // -->
 </script>
 </HEAD>
-
-<DIV ID="tickerbg" style="position:absolute;"></DIV>
+<?include ('config.php');?><DIV ID="tickerbg" style="position:absolute;"></DIV>
 <DIV ID="ticker" style="position:absolute;"></DIV>
-<center>
-<table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
-  <tr> 
-    <td width=100% height="63"> 
-      <center>
-        <b><font size=2 face=arial, helvetica, geneva> 
-        <div align="center"><b><img src="logo.gif" width="300" height="100"></b></div>
-        </font></b> 
-      </center>
-    </td>
-  </tr>
-</table>
-<br>
-<table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
-  <tr bgcolor=<? echo"$tabletop"; ?>> 
-    <td width=100%> 
-      <center>
-        <b><font size=2 face=arial, helvetica, geneva><marquee> 
-        <? include('http://phpmydivx.free.fr/version.txt'); ?>
-        </marquee></font></b> 
-      </center>
-    </td>
-  </tr>
-</table>
-<br>
-<table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
-  <tr bgcolor=<? echo"$tabletop"; ?>> 
-    <td width=100%>
-      <center>
-        <b><font size=2 face=arial, helvetica, geneva> 
-        <div align="center">[ <a href="/admin"><font color=black>Administration</font></a> 
-          ]</div>
-        </font></b>
-      </center>
-    </td>
-  </tr>
-</table>
-<br>
-
-<table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
-
-<tr bgcolor=<? echo"$tabletop"; ?>>
-
-<td width=100%><center><b><font size=2 face=arial, helvetica, geneva>
-
-<?
+<div align="center"> 
+  <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
+    <tr> 
+      <td width=100% height="63"> 
+        <center>
+          <b><font size=2 face=arial, helvetica, geneva> 
+          <div align="center"><b><img src="logo.gif" width="300" height="100"></b></div>
+          </font></b> 
+        </center>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
+    <tr bgcolor=<? echo"$tabletop"; ?>> 
+      <td width=100%> 
+        <center>
+          <b><font size=2 face=arial, helvetica, geneva><marquee> 
+          <? include('http://phpmydivx.free.fr/version.txt') ?>
+          </marquee></font></b> 
+        </center>
+      </td>
+    </tr>
+  </table>
+  <b><br>
+  </b>
+  <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
+    <tr bgcolor=<? echo"$tabletop"; ?>> 
+      <td width=100% align="center"> 
+        <div align="center"><b>[ <a href="/admin"><font color=black>Administration</font></a> 
+          ]</b></div>
+      </td>
+    </tr>
+  </table>
+  <b><br>
+  </b>
+  <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
+    <tr bgcolor=<? echo"$tabletop"; ?>> 
+      <td width=100% align="center"> 
+        <?
 
           //Nb de personnes sur le site
 
           include('connectes.inc');
 
         ?>
-
-<?
+        <?
 
 mysql_connect($host, $user, $pass);
 
-mysql_select_db($base) or die( "Connexion impossible à la base de donnée !!!!!!");
+mysql_select_db($base) or die( "Connexion impossible à la base de donnée !!!");
 
 $sql = mysql_query("SELECT * FROM liste");
 
@@ -252,8 +244,7 @@ mysql_close();
 
 
 ?>
-
-<?
+        <?
 
 $fp = fopen("compteur.txt","r+"); 
 
@@ -269,59 +260,37 @@ fclose($fp);
 
 print("$nbvisites visiteurs");   
 
-?></td></tr></table><br>
-
-
-
-
-
-<table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
-
-<tr bgcolor=<? echo"$tabletop"; ?>>
-
-    <td width=100%><center><b><font size=2 face=arial, helvetica, geneva> 
-
-      <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=100%>
-
-        <tr>
-
-          <td> 
-
-            <div align="center"><b><font face="Tahoma"><a href="index.php3">Titre</a></font></b></div>
-
-          </td>
-
-          <td>
-
-            <div align="center"><b><font size="2" face="Tahoma"><a href="support.php3">Support</a></font></b></div>
-
-          </td>
-
-          <td>
-
-            <div align="center"><b><font face="Tahoma" size="2"><a href="langue.php3">Langue</a></font></b></div>
-
-          </td>
-
-          <td>
-
-            <div align="center"><b><font face="Tahoma" size="2"><a href="qualite.php3">Qualite</a></font></b></div>
-
-          </td>
-
-          <td>
-
-            <div align="center"><b><font face="Tahoma" size="2"><a href="description.php3">Description</a></font></b></div>
-
-          </td>
-		  
-        </tr>
-
-        <tr>
-
-          <td> 
-
-      <div align="center">      <? 
+?>
+      </td>
+    </tr>
+  </table>
+  <b><br>
+  </b>
+  <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
+    <tr bgcolor=<? echo"$tabletop"; ?>> 
+      <td width=100% align="center"> 
+        <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=100%>
+          <tr> 
+            <td> 
+              <div align="center"><b><font face="Tahoma"><a href="index.php">Titre</a></font></b></div>
+            </td>
+            <td> 
+              <div align="center"><b><font size="2" face="Tahoma"><a href="support.php">Support</a></font></b></div>
+            </td>
+            <td> 
+              <div align="center"><b><font face="Tahoma" size="2"><a href="langue.php">Langue</a></font></b></div>
+            </td>
+            <td> 
+              <div align="center"><b><font face="Tahoma" size="2"><a href="qualite.php">Qualite</a></font></b></div>
+            </td>
+            <td> 
+              <div align="center"><b><font face="Tahoma" size="2"><a href="description.php">Description</a></font></b></div>
+            </td>
+          </tr>
+          <tr> 
+            <td> 
+              <div align="center"> <b> 
+                <? 
 
 // on se connecte à MySQL 
 
@@ -337,7 +306,7 @@ mysql_select_db($base,$db);
 
 // on créer la requete SQL et on l'envoie 
 
-$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY langue'; 
+$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY nom'; 
 
 
 
@@ -374,14 +343,11 @@ while($data = mysql_fetch_array($req))
 mysql_close(); 
 
 ?>
-
-            </div>
-
-          </td>
-
-          <td> <div align="center">
-
-            <? 
+                </b></div>
+            </td>
+            <td> 
+              <div align="center"> <b> 
+                <? 
 
 // on se connecte à MySQL 
 
@@ -397,7 +363,7 @@ mysql_select_db($base,$db);
 
 // on créer la requete SQL et on l'envoie 
 
-$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY langue'; 
+$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY nom'; 
 
 
 
@@ -434,14 +400,11 @@ while($data = mysql_fetch_array($req))
 mysql_close(); 
 
 ?>
-
-            </div>
-
-          </td>
-
-          <td> <div align="center">
-
-            <? 
+                </b></div>
+            </td>
+            <td> 
+              <div align="center"> <b> 
+                <? 
 
 // on se connecte à MySQL 
 
@@ -457,7 +420,7 @@ mysql_select_db($base,$db);
 
 // on créer la requete SQL et on l'envoie 
 
-$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY langue'; 
+$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY nom'; 
 
 
 
@@ -496,14 +459,11 @@ while($data = mysql_fetch_array($req))
 mysql_close(); 
 
 ?>
-
-            </div>
-
-          </td>
-
-          <td> 
-
-           <div align="center"> <? 
+                </b></div>
+            </td>
+            <td> 
+              <div align="center"> <b> 
+                <? 
 
 // on se connecte à MySQL 
 
@@ -519,7 +479,7 @@ mysql_select_db($base,$db);
 
 // on créer la requete SQL et on l'envoie 
 
-$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY langue'; 
+$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY nom'; 
 
 
 
@@ -556,14 +516,11 @@ while($data = mysql_fetch_array($req))
 mysql_close(); 
 
 ?>
-
-            </div>
-
-          </td>
-
-          <td> 
-
-           <div align="center"> <? 
+                </b></div>
+            </td>
+            <td> 
+              <div align="center"> <b> 
+                <? 
 
 // on se connecte à MySQL 
 
@@ -579,7 +536,7 @@ mysql_select_db($base,$db);
 
 // on créer la requete SQL et on l'envoie 
 
-$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY langue'; 
+$sql = 'SELECT nom,support,langue,qualite,description FROM liste ORDER BY nom'; 
 
 
 
@@ -616,36 +573,19 @@ while($data = mysql_fetch_array($req))
 mysql_close(); 
 
 ?>
-
-            </div>
-
-          </td>
-
-        </tr>
-
-      </table>
-
-    </td>
-
-  </tr></table><br>
-
-
-
-
-
-
-
-
-
-
-
-<table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
-
-<tr bgcolor=<? echo"$tabletop"; ?>>
-
-<td width=100%><center><b><font size=2 face=arial, helvetica, geneva>
-
-<?
+                </b></div>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <b><br>
+  </b>
+  <table border=1 cellpadding=2 cellspacing=0 bordercolordark=#FFFFFF bordercolorlight=#666666 width=800>
+    <tr bgcolor=<? echo"$tabletop"; ?>> 
+      <td width=100% align="center"> 
+        <?
 
 mysql_connect($host, $user, $pass);
 
@@ -665,9 +605,10 @@ mysql_close();
 
 
 
-?></td></tr></table><br>
-
-<center><br>
-  <font class='text0'> | http://PhpMyDivX.free.fr | Copyright PhpMyDivX® 2001 
-  - 2002 | By InKLy et Choizo | </font> 
-</center>
+?>
+</td>
+    </tr>
+  </table>
+  <p><font class='text0'> http://PhpMyDivX.free.fr | Copyright PhpMyDivX® 2001 
+    - 2002 </font> </p>
+  </div>
