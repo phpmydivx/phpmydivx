@@ -1,0 +1,22 @@
+		######################################
+		#				     #
+		#       Php My DivX Version 1.0	     #
+		#				     #
+		#      http://PhpMyDivX.free.fr      #
+		#				     #
+		######################################
+
+           1) Décompresser le fichier PhpMyDivXv1.0.zip
+
+	   2) Changer les données du fichier config.php3
+
+	   3) Mettre un password sur la page admin/index.php3
+
+	   4) Envoyer sur un ftp le contenu du dossier PhpMyDivX
+
+	   5) Dans Mysql executer le fichier table.sql
+
+
+
+
+	http://PhpMyDivX.free.fr | Copyright PhpMyDivX® 2001
