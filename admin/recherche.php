@@ -50,6 +50,8 @@ echo '
         <td>'.$val['langue'].'</td>
         <td>'.$val['description'].'</td>
         <td>'.$val['qualite'].'</td>
+        <td><a href="update.php?id='.(int)$val['id'].'">Modifier</a></td>
+        <td><a href="delete.php?id='.$val['id'].'">Effacer</a></td>
     </tr>';
 }
 echo'
