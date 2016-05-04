@@ -1,6 +1,5 @@
 <?php
 include('header.php');
-include('../config.php');
 
 mysql_connect($host, $user, $pass);
 mysql_select_db($base) or die('Connexion impossible à la base de donnée.');

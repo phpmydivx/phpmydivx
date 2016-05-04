@@ -1,0 +1,18 @@
+<?php
+
+// Website name, Domain
+define('WEBSITE_NAME', 'PHPMyDivx');
+define('DOMAIN', 'phpmydivx.free.fr');
+define('PASSWORD', 'phpmydivx');
+
+// Encoding, Lang, Timezone
+define('ENCODING', 'UTF-8');
+define('LANG', 'fr_FR');
+define('TIMEZONE', 'Europe/Paris');
+
+// Database informations
+define('DB_SERVER', 'localhost');
+define('DB_NAME', 'dbname');
+define('DB_USER', 'user');
+define('DB_PASS', 'password');
+define('DB_ENCODING', 'UTF8');
